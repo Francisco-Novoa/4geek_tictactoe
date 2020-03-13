@@ -14,19 +14,13 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 
+//importing elements into index.js
 
-class Home extends Component {
+import Choosing from "./choosing";
+import Game from "./game";
 
-    __constructor(){
-        super();
-        this.state={}
-    }
-    render (){
-        return(
-            <h1> Proyecto React Vacio</h1>
-        )
-    }
-}
- 
+var game_state_var = [[0, 0, 0],
+[0, 0, 0],
+[0, 0, 0]]
 
-ReactDOM.render(<Home />, document.querySelector("#root"));
+ReactDOM.render(<Game/>, document.querySelector("#root"));
