@@ -16,11 +16,7 @@ import 'bootstrap';
 
 //importing elements into index.js
 
-import Choosing from "./choosing";
-import Game from "./game";
+import Main from "./main";
 
-var game_state_var = [[0, 0, 0],
-[0, 0, 0],
-[0, 0, 0]]
-
-ReactDOM.render(<Game/>, document.querySelector("#root"));
+//render function
+ReactDOM.render(<Main />, document.querySelector("#root"));
