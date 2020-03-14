@@ -54,7 +54,7 @@ class Game extends React.Component {
     winCondition() {
             if ((gameState_var[0][0] == 1 && gameState_var[1][0] == 1 && gameState_var[2][0]== 1)||(gameState_var[0][0] == 2 && gameState_var[1][0] == 2 && gameState_var[2][0]== 2) ) {  this.victoryAnimation("0,0,1,0,2,0") }
        else if ((gameState_var[0][1] == 1 && gameState_var[1][1] == 1 && gameState_var[2][1]== 1)||(gameState_var[0][1] == 2 && gameState_var[1][1] == 2 && gameState_var[2][1]== 2) ) {  this.victoryAnimation("0,1,1,1,2,1") }
-       else if ((gameState_var[0][2] == 1 && gameState_var[1][2] == 1 && gameState_var[2][2]== 1)||(gameState_var[0][2] == 2 && gameState_var[1][1] == 2 && gameState_var[2][2]== 2) ) {  this.victoryAnimation("0,2,1,2,2,2") }
+       else if ((gameState_var[0][2] == 1 && gameState_var[1][2] == 1 && gameState_var[2][2]== 1)||(gameState_var[0][2] == 2 && gameState_var[1][2] == 2 && gameState_var[2][2]== 2) ) {  this.victoryAnimation("0,2,1,2,2,2") }
        else if ((gameState_var[0][0] == 1 && gameState_var[0][1] == 1 && gameState_var[0][2]== 1)||(gameState_var[0][0] == 2 && gameState_var[0][1] == 2 && gameState_var[0][2]== 2) ) {  this.victoryAnimation("0,0,0,1,0,2") }
        else if ((gameState_var[1][0] == 1 && gameState_var[1][1] == 1 && gameState_var[1][2]== 1)||(gameState_var[1][0] == 2 && gameState_var[1][1] == 2 && gameState_var[1][2]== 2) ) {  this.victoryAnimation("1,0,1,1,1,2") }
        else if ((gameState_var[2][0] == 1 && gameState_var[2][1] == 1 && gameState_var[2][2]== 1)||(gameState_var[2][0] == 2 && gameState_var[2][1] == 2 && gameState_var[2][2]== 2) ) {  this.victoryAnimation("2,0,2,1,2,2") }
