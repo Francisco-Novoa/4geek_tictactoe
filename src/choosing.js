@@ -27,10 +27,10 @@ class Choosing extends React.Component {
                     </div>
                     <div className="row">
                         <div className="col-6">
-                            <a className="btn btn-secondary btn-lg" role="button"  onClick={(e)=>this.props.weapon(1)}><i className="fas fa-plus fa-4x"></i></a>
+                            <a className="btn btn-secondary btn-lg" role="button"  onClick={(e)=>{this.props.weapon(1)}}><i className="fas fa-plus fa-4x"></i></a>
                         </div>
                         <div className="col-6">
-                            <a className="btn btn-secondary btn-lg" role="button"  onClick={(e)=>this.props.weapon(2)}><i className="far fa-circle fa-4x"></i></a>
+                            <a className="btn btn-secondary btn-lg" role="button"  onClick={(e)=>{this.props.weapon(2)}}><i className="far fa-circle fa-4x"></i></a>
                         </div>
                     </div>
                 </div>

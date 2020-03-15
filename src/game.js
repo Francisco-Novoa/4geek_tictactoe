@@ -10,8 +10,11 @@ class Game extends React.Component {
         super(props);
         this.state = {
             user: this.props.weapon,
-            userName1:this.props.name1,
-            userName2:this.props.name2,
+            currPlayer: this.props.userName1,
+            playedCircle:"",
+            playedCross:"",
+            victory:0,
+            gameStarted:0,
             gameState: [[0, 0, 0],
                         [0, 0, 0],
                         [0, 0, 0]]
@@ -20,34 +23,52 @@ class Game extends React.Component {
 
     gameHandler = (e) => {
 
+        if (this.props.weapon==1&&this.state.gameStarted==0){
+            this.setState({
+                playedCross: this.props.userName1,
+                playedCircle: this.props.userName2,
+                gameStarted:1
+            })
+            
+        }
+        
+        if (this.props.weapon==2&&this.state.gameStarted==0){
+            this.setState({
+                playedCross: this.props.userName2,
+                playedCircle: this.props.userName1,
+                gameStarted:1
+            })
+        }
+        console.log(this.state.playedCircle,this.state.playedCross,this.state.currPlayer,"ayayay")
         const aux = e.target.id.split(",")
         const ASDF = [parseInt(aux[0]), parseInt(aux[1])]
         var usuario;
 
-        console.log(this.props)
-
-        if (gameState_var[ASDF[0]][ASDF[1]] === 0) {
+        if(this.state.victory==0)
+         {if (gameState_var[ASDF[0]][ASDF[1]] === 0) {
 
             if (this.state.user === 1) {
-                usuario = 2
+                usuario = 2;
                 gameState_var[ASDF[0]][ASDF[1]] = 1;
 
                 this.setState({
+                    currPlayer: this.state.playedCircle,
                     user: usuario,
                     gameState: gameState_var
                 })
             }
 
             if (this.state.user === 2) {
-                usuario = 1
+                usuario = 1 
                 gameState_var[ASDF[0]][ASDF[1]] = 2;
 
                 this.setState({
+                    currPlayer: this.state.playedCross,
                     user: usuario,
                     gameState: gameState_var
                 })
             }
-        }
+        }}
         this.winCondition();
     }
 
@@ -64,7 +85,9 @@ class Game extends React.Component {
 }
 
     victoryAnimation=(ops)=>{
-        console.log("juego Ganado!!")
+        this.setState({
+            victory:1
+        })
        if (ops=="0,0,1,0,2,0"){
         document.querySelector("#game > :nth-child(2) > :nth-child(1)").classList.remove("bg-secondary")
         document.querySelector("#game > :nth-child(2) > :nth-child(1)").classList.add("bg-danger")
@@ -139,7 +162,8 @@ class Game extends React.Component {
 
         this.setState({
              user: this.props.weapon,
-             gameState: gameState_var
+             gameState: gameState_var,
+             victory:0,
          })
          document.querySelector("#game > :nth-child(2) > :nth-child(1)").classList.remove("bg-danger")
          document.querySelector("#game > :nth-child(2) > :nth-child(1)").classList.add("bg-secondary")
@@ -165,6 +189,12 @@ class Game extends React.Component {
         return (
             <div className="container bg-dark p-5" id="game">
                 <div className="row d-flex justify-content-center p-2">
+                <div className="col-12">
+                    {  this.state.victory == 0 ?  <h1> Turn of {this.state.currPlayer} </h1> 
+                    : this.state.victory==1&&this.state.currPlayer==this.state.playedCircle ? <h1 id="title">  {this.state.playedCross} has won! </h1> 
+                    : this.state.victory==1&&this.state.currPlayer==this.state.playedCross  ? <h1 id="title">  {this.state.playedCircle} has won! </h1>
+                    : "error here" }
+                    </div>
                 <button type="button" className="btn btn-light" onClick={this.reset}>Reset Game</button>
                 </div>
                 <div className="row d-flex justify-content-center">

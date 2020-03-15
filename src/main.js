@@ -16,17 +16,14 @@ class Main extends React.Component {
 
     callback_userName1 = (childData) => {
         this.setState({userName1: childData.target.value})
-        console.log(this.state.userName1)
     }
 
     callback_userName2 = (childData) => {
         this.setState({userName2: childData.target.value})
-        console.log(this.state.userName2)
     }
 
     callback_weapon = (childData) => {
         this.setState({weapon: childData})
-        console.log(this.state.userName1,this.state.userName2,this.state.weapon)
     }
 
     render() {
@@ -41,8 +38,9 @@ class Main extends React.Component {
                 </div>
 
                {(this.state.userName1!=""&&this.state.userName2!=""&&this.state.weapon!=0) 
-                    ?<Game weapon={this.state.weapon} name1={this.state.userName1} name2={this.state.userName2} /> 
-                        :<Choosing name1={this.callback_userName1} name2={this.callback_userName2} weapon={this.callback_weapon}/>}
+                    ?
+                    <Game weapon={this.state.weapon} userName1={this.state.userName1} userName2={this.state.userName2} /> 
+                    :<Choosing name1={this.callback_userName1} name2={this.callback_userName2} weapon={this.callback_weapon}  currplayer={this.callback_currPlayer} />}
             </div>
         )
     }

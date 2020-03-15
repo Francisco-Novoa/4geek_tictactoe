@@ -39,4 +39,12 @@ input{
 
 #game div div{
     padding:50px;
+    height: 200px;
+    width: 200px;
+}
+
+#title{
+    color:royalblue;
+    font-size: 45px;
+    font-weight: 800;
 }
